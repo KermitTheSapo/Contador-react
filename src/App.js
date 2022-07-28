@@ -1,25 +1,50 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import styled from "styled-components"
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const Div = styled.div`
+  background-color:aquamarine;
+  justify-content:space-evenly;
+  align-items:center;
+  height: 100vh;
+  display:flex;
+`
+
+const Butoes = styled.button`
+  height:10vh;
+  width:15%;
+  font-size:20px;
+  border-radius:10px;
+`
+
+const Numero = styled.h1`
+  font-size: 50px;
+`
+
+
+export default class App extends Component {
+  state = {
+    contador: 0
+  };
+
+  add = () => {
+    this.setState({
+      contador: this.state.contador <=99 ? this.state.contador +1 : this.state.contador + 0
+    })
+  };
+
+  remove = () => {
+    this.setState({
+      contador: this.state.contador >= 1? this.state.contador -1 : this.state.contador = 0
+    })
+  };
+
+  render() {
+    return (
+      <Div>
+        <Butoes onClick={this.add}>+</Butoes>
+        <Numero>{this.state.contador}</Numero>
+        <Butoes onClick={this.remove}>-</Butoes>
+      </Div>
+    );
+  }
 }
-
-export default App;
