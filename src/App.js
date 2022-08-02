@@ -1,25 +1,5 @@
 import React, { Component } from "react";
-import styled from "styled-components"
-
-const Div = styled.div`
-  background-color:aquamarine;
-  justify-content:space-evenly;
-  align-items:center;
-  height: 100vh;
-  display:flex;
-`
-
-const Butoes = styled.button`
-  height:10vh;
-  width:15%;
-  font-size:20px;
-  border-radius:10px;
-`
-
-const Numero = styled.h1`
-  font-size: 50px;
-`
-
+import * as S from "./components/style.js"
 
 export default class App extends Component {
   state = {
@@ -40,11 +20,12 @@ export default class App extends Component {
 
   render() {
     return (
-      <Div>
-        <Butoes onClick={this.add}>+</Butoes>
-        <Numero>{this.state.contador}</Numero>
-        <Butoes onClick={this.remove}>-</Butoes>
-      </Div>
+      <S.Div>
+          <S.GlobalStyle/>
+          <S.Butoes onClick={this.add}>+</S.Butoes>
+          <S.Numero>{this.state.contador}</S.Numero>
+          <S.Butoes onClick={this.remove}>-</S.Butoes>
+      </S.Div>
     );
   }
 }
